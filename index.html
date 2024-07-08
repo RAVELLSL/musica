@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automação e IA para criação musical</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.8s ease-in-out;
+        }
+        #page1 {
+            background: url('https://wallpapers.com/images/hd/table-of-music-4k-kapplvr0i9cj975e.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            justify-content: center;
+            text-align: center;
+        }
+        #page2 {
+            background: url('https://wallpapers.com/images/hd/tape-music-4k-n5soe1w0suv1h1pf.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            transform: translateY(100%);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        #page3 {
+            background: url('https://previews.123rf.com/images/hasenonkel/hasenonkel1110/hasenonkel111000183/11007628-dirty-music-background-with-piano-and-sepia.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            transform: translateY(100%);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .centered-button {
+            background-color: rgba(76, 175, 80, 0.6); /* Verde translúcido */
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .centered-button:hover {
+            background-color: rgba(69, 160, 73, 0.8); /* Verde um pouco mais escuro e menos translúcido */
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .centered-button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+            text-align: center;
+            width: 100%; /* Faz o título ocupar toda a largura */
+        }
+        .summary-box {
+            width: 45%; /* Aumenta a largura da caixa de texto */
+            max-width: 450px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-right: 30px; /* Reduz o espaçamento entre a área de texto e os cards */
+            overflow-y: auto; /* Adiciona rolagem se necessário */
+            height: 75vh; /* Define a altura da caixa explicativa */
+        }
+        .summary-box h2 {
+            margin-top: 0;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Altera para três colunas */
+            gap: 20px;
+            justify-content: flex-start; /* Alinha ao lado esquerdo */
+            margin-left: 30px; /* Reduz o espaçamento à esquerda */
+            margin-top: 30px; /* Reduz o espaçamento ao topo */
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px; /* Ajusta a altura dos cards */
+            width: 120px; /* Ajusta a largura dos cards */
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .content {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+    </style>
+    <script>
+        function redirectToNewPage() {
+            document.getElementById('page1').style.transform = 'translateY(-100%)';
+            document.getElementById('page2').style.transform = 'translateY(0)';
+        }
+
+        function showSingingLesson() {
+            document.getElementById('page2').style.transform = 'translateY(-100%)';
+            document.getElementById('page3').style.transform = 'translateY(0)';
+        }
+    </script>
+</head>
+<body>
+    <div id="page1" class="page">
+        <h1>Automação e IA para criação musical</h1>
+        <button class="centered-button" onclick="redirectToNewPage()">Acessar</button>
+    </div>
+    <div id="page2" class="page">
+        <h1>Escolha a ferramenta necessária</h1>
+        <div style="display: flex; width: 100%;">
+            <div class="summary-box">
+                <h2>Resumo das Ferramentas</h2>
+                <p><strong>Audio Alter:</strong> Ferramenta online para alterar e modificar arquivos de áudio. Permite aplicar efeitos sonoros, ajustar o tom, a velocidade e muito mais.</p>
+                <p><strong>Dicionário de Rimas:</strong> Dicionário colaborativo que inclui definições de palavras, rimas e gírias. Útil para escritores, compositores, poetas e qualquer pessoa interessada em ampliar seu vocabulário.</p>
+                <p><strong>Musicca:</strong> Plataforma de ferramentas musicais que ajuda no aprendizado de teoria musical, leitura de partituras e prática de instrumentos.</p>
+                <p><strong>Convertio:</strong> Conversor de arquivos online que suporta uma ampla gama de formatos. Facilita a conversão de documentos, imagens, vídeos e arquivos de áudio.</p>
+                <p><strong>aNotepad:</strong> Bloco de notas online que permite criar, editar e salvar notas diretamente no navegador. Oferece sincronização em nuvem para acesso em múltiplos dispositivos.</p>
+                <p><strong>Vocal Remover:</strong> Ferramenta para remover vocais de músicas, permitindo criar versões instrumentais. Ideal para DJs, produtores musicais e entusiastas de karaokê.</p>
+                <p><strong>ChatGPT:</strong> Interface de inteligência artificial baseada em conversação, capaz de auxiliar na escrita criativa, composições e muito mais.</p>
+                <p><strong>Suno.AI:</strong> Plataforma de criação musical com o auxílio da IA. Ideal para quem quer experimentar novos estilos de composição e resolver problemas como o bloqueio criativo.</p>
+                <p><strong>Músicas Registradas:</strong> Serviço online para registro de músicas, garantindo proteção dos direitos autorais e a autoria das composições.</p>
+                <p><strong>Gravador de Voz:</strong> Ferramenta online para gravar áudio diretamente do seu navegador, permitindo capturar suas ideias e composições musicais com facilidade.</p>
+                <p><strong>Aula de Canto:</strong> Aulas de canto em nível básico e intermediário.</p>
+                <p><strong>Dicionário de Acordes:</strong> Ferramenta online que oferece uma ampla variedade de acordes e diagramas para violão e guitarra. Útil para músicos de todos os níveis, desde iniciantes até avançados.</p>
+            </div>
+            <div class="card-container">
+                <a href="https://audioalter.com/" class="card" target="_blank">Audio Alter</a>
+                <a href="https://www.dicionarioinformal.com.br/rimas/" class="card" target="_blank">Dicionário de Rimas</a>
+                <a href="https://www.musicca.com/pt/ferramentas" class="card" target="_blank">Musicca</a>
+                <a href="https://convertio.co/pt/archive-converter/" class="card" target="_blank">Convertio</a>
+                <a href="https://pt.anotepad.com/" class="card" target="_blank">aNotepad</a>
+                <a href="https://vocalremover.org/?patreon" class="card" target="_blank">Vocal Remover</a>
+                <a href="https://chatgpt.com/" class="card" target="_blank">ChatGPT</a>
+                <a href="https://suno.com/" class="card" target="_blank">Suno.AI</a>
+                <a href="https://musicasregistradas.com/" class="card" target="_blank">Músicas Registradas</a>
+                <a href="https://online-voice-recorder.com/pt/" class="card" target="_blank">Gravador de Voz</a>
+                <a href="javascript:void(0);" class="card" onclick="showSingingLesson()">Aula de Canto</a>
+                <a href="https://www.cifraclub.com.br/dicionario.acordes" class="card" target="_blank">Dicionário de Acordes</a>
+            </div>
+        </div>
+    </div>
+    <div id="page3" class="page">
+        <div class="content">
+            <h1>Aula de Canto (Nível Básico)</h1>
+            <iframe src="https://www.youtube.com/embed/videoseries?list=PLVakHlcZgmOZF2vn-1pDT4fr4rtixbHsB" allowfullscreen></iframe>
+            <h1>Aula de Canto (Nível Intermediário)</h1>
+            <iframe src="https://www.youtube.com/embed/videoseries?list=PLVakHlcZgmObV8OOzphmg5VO2py-oVUxS" allowfullscreen></iframe>
+        </div>
+    </div>
+</body>
+</html>
