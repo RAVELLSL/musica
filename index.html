@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automação e IA para criação musical</title>
+    <title>Criação Musical</title>
     <style>
         body, html {
             height: 100%;
@@ -203,6 +203,11 @@
             document.getElementById('page2').style.transform = 'translateY(-100%)';
             document.getElementById('page3').style.transform = 'translateY(0)';
         }
+
+        function backToPage2() {
+            document.getElementById('page3').style.transform = 'translateY(100%)';
+            document.getElementById('page2').style.transform = 'translateY(0)';
+        }
     </script>
 </head>
 <body>
@@ -245,6 +250,7 @@
         </div>
     </div>
     <div id="page3" class="page">
+        <button class="centered-button" onclick="backToPage2()">Voltar</button>
         <div class="content">
             <h1>Aula de Canto (Nível Básico)</h1>
             <iframe src="https://www.youtube.com/embed/videoseries?list=PLVakHlcZgmOZF2vn-1pDT4fr4rtixbHsB" allowfullscreen></iframe>
