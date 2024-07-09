@@ -45,10 +45,12 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            overflow-y: auto; /* Adiciona a barra de rolagem */
+            padding-top: 40px; /* Espaço no topo da página */
         }
         .centered-button {
             background-color: rgba(76, 175, 80, 0.6); /* Verde translúcido */
@@ -100,7 +102,7 @@
             grid-template-columns: repeat(3, 1fr); /* Altera para três colunas */
             gap: 20px;
             justify-content: flex-start; /* Alinha ao lado esquerdo */
-            margin-left: 30px; /* Reduz o espaçamento à esquerda */
+            margin-left: -10px; /* Reduz o espaçamento à esquerda */
             margin-top: 30px; /* Reduz o espaçamento ao topo */
         }
         .card {
@@ -128,6 +130,8 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             max-width: 800px;
             text-align: center;
+            width: 90%; /* Aumenta a largura do conteúdo */
+            margin: 20px auto; /* Centraliza o conteúdo */
         }
         iframe {
             width: 100%;
@@ -135,6 +139,56 @@
             border: none;
             margin-top: 20px;
             border-radius: 8px;
+        }
+        .lesson-divider {
+            margin-top: 40px; /* Espaço entre as duas modalidades de aula */
+        }
+        .bottom-spacer {
+            height: 40px; /* Espaço ao final da página */
+        }
+        /* Estilos para dispositivos móveis */
+        @media only screen and (max-width: 600px) {
+            .summary-box {
+                width: 90%;
+                max-width: none;
+                margin-right: 0;
+                height: auto;
+                margin-bottom: 20px;
+            }
+            .card-container {
+                grid-template-columns: repeat(2, 1fr); /* Altera para duas colunas em telas menores */
+                margin-left: 0;
+                gap: 10px;
+            }
+            .card {
+                height: 80px; /* Ajusta a altura dos cards */
+                width: 100px; /* Ajusta a largura dos cards */
+            }
+            .centered-button {
+                width: 80%;
+                padding: 10px;
+                font-size: 16px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+        }
+        @media only screen and (max-width: 400px) {
+            .card-container {
+                grid-template-columns: 1fr; /* Altera para uma coluna em telas muito pequenas */
+            }
+            .card {
+                width: 90%;
+                height: 60px;
+            }
+            .centered-button {
+                width: 90%;
+                padding: 10px;
+                font-size: 14px;
+            }
+            h1 {
+                font-size: 20px;
+            }
         }
     </style>
     <script>
@@ -156,7 +210,7 @@
     </div>
     <div id="page2" class="page">
         <h1>Escolha a ferramenta necessária</h1>
-        <div style="display: flex; width: 100%;">
+        <div style="display: flex; width: 100%; flex-wrap: wrap;">
             <div class="summary-box">
                 <h2>Resumo das Ferramentas</h2>
                 <p><strong>Audio Alter:</strong> Ferramenta online para alterar e modificar arquivos de áudio. Permite aplicar efeitos sonoros, ajustar o tom, a velocidade e muito mais.</p>
@@ -192,8 +246,10 @@
         <div class="content">
             <h1>Aula de Canto (Nível Básico)</h1>
             <iframe src="https://www.youtube.com/embed/videoseries?list=PLVakHlcZgmOZF2vn-1pDT4fr4rtixbHsB" allowfullscreen></iframe>
+            <div class="lesson-divider"></div>
             <h1>Aula de Canto (Nível Intermediário)</h1>
             <iframe src="https://www.youtube.com/embed/videoseries?list=PLVakHlcZgmObV8OOzphmg5VO2py-oVUxS" allowfullscreen></iframe>
+            <div class="bottom-spacer"></div>
         </div>
     </div>
 </body>
